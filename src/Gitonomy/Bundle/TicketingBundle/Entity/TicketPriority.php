@@ -15,6 +15,7 @@ namespace Gitonomy\Bundle\TicketingBundle\Entity;
 class TicketPriority
 {
     protected $id;
+    protected $score;
     protected $title;
     protected $isActive;
 
@@ -28,6 +29,18 @@ class TicketPriority
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setScore($score)
+    {
+        $this->score  = $score;
+
+        return $this;
+    }
+
+    public function getScore()
+    {
+        return $this->score;
     }
 
     public function setTitle($title)

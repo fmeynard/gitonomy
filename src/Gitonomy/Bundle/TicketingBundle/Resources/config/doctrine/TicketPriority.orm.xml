@@ -8,6 +8,7 @@
             <generator strategy="AUTO" />
         </id>
 
+        <field name="score" type="integer" column="score" />
         <field name="title" type="string" column="name" length="32" />
         <field name="isActive" type="boolean" column="is_active" />
     </entity>
