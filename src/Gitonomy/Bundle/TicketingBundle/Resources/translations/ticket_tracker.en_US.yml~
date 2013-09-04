@@ -1,0 +1,5 @@
+create.tracker: Create a new tracker
+form.title: Title
+form.legend: Tracker
+button.create: Create
+button.cancel: Cancel

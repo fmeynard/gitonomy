@@ -1,0 +1,39 @@
+{% extends "GitonomyTicketingBundle::layout_tracker.html.twig" %}
+
+{% trans_default_domain 'ticket_tracker' %}
+
+{% block tracker_content %}
+    <div class="actionbar">
+        <a href="{{ path('tracker_create') }}" class="menu"><i class="symbol">add</i> {{ 'create.tracker'|trans }}</a>
+
+        {% if trackers %}
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th>{{ 'table.title'|trans }}</th>
+                        <th>{{ 'table.description'|trans }}</th>
+                        <th>{{ 'table.actions'|trans }}</th>
+                    </tr>
+                </thead>
+                <tbody>
+                {% for tracker in trackers %}
+                    <tr>
+                        <td>{{ tracker.title }}</td>
+                        <td></td>
+                        <td>
+                            <a rel="tooltip" class="btn btn-small" href="{{ path('tracker_update', {id: tracker.id}) }}">
+                                <i class="icon-edit"></i>
+                            </a>
+                            <a rel="tooltip" class="btn btn-small btn-danger" href="{{ path('tracker_delete', {id: tracker.id}) }}" onclick="return confirm('Are you sure ?');">
+                                <i class="icon-fire icon-white"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            No
+        {% endif %}
+    </div>
+{% endblock %}

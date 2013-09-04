@@ -7,13 +7,11 @@
  * This source file is subject to the GPL license that is bundled
  * with this source code in the file LICENSE.
  */
+namespace Gitonomy\Bundle\TicketingBundle;
 
-namespace Gitonomy\Bundle\TicketingBundle\Entity\Repository;
+use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-
-use Doctrine\ORM\EntityRepository;
-
-class TicketPriorityRepository extends EntityRepository
+class GitonomyTicketingBundle extends Bundle
 {
 
 }

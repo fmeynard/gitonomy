@@ -1,0 +1,11 @@
+ticket_tracker:
+    resource: "@GitonomyTicketingBundle/Resources/config/routing/ticket_tracker.yml"
+
+ticket_category:
+    resource: "@GitonomyTicketingBundle/Resources/config/routing/ticket_category.yml"
+
+ticket_status:
+    resource: "@GitonomyTicketingBundle/Resources/config/routing/ticket_status.yml"
+
+ticket_priority:
+    resource: "@GitonomyTicketingBundle/Resources/config/routing/ticket_priority.yml"
