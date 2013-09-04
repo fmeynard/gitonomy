@@ -1,0 +1,24 @@
+<?xml version="1.0" ?>
+
+<container xmlns="http://symfony.com/schema/dic/services"
+           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+           xsi:schemaLocation="http://symfony.com/schema/dic/services http://symfony.com/schema/dic/services/services-1.0.xsd">
+
+    <parameters>
+        <!-- Tracker -->
+        <parameter key="gitonomy_ticketing.form.type.tracker.class">Gitonomy\Bundle\TicketingBundle\Form\Tracker\TicketTrackerType</parameter>
+        <parameter key="gitonomy_ticketing.form.type.category.class">Gitonomy\Bundle\TicketingBundle\Form\TicketCategory\TicketCategoryType</parameter>
+    </parameters>
+
+    <services>
+
+        <!-- General -->
+        <service id="gitonomy_ticketing.form.type.tracker" class="%gitonomy_ticketing.form.type.tracker.class%">
+            <tag name="form.type" alias="ticket_tracker" />
+        </service>
+        <service id="gitonomy_ticketing.form.type.category" class="%gitonomy_ticketing.form.type.category.class%">
+            <tag name="form.type" alias="ticket_category" />
+        </service>
+    </services>
+
+</container>

@@ -1,0 +1,41 @@
+{% extends "GitonomyTicketingBundle::layout_tracker.html.twig" %}
+
+{% trans_default_domain 'ticket_category' %}
+
+{% block tracker_content %}
+    <div class="actionbar">
+        <a href="{{ path('ticket_category_create') }}" class="menu"><i class="symbol">add</i> {{ 'create.category'|trans }}</a>
+
+        {% if categories %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>{{ 'table.title'|trans }}</th>
+                    <th>{{ 'table.description'|trans }}</th>
+                    <th>{{ 'table.isActive' }}</th>
+                    <th>{{ 'table.actions'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for category in categories %}
+                    <tr>
+                        <td>{{ category.title }}</td>
+                        <td>{{ category.description }}</td>
+                        <td>{{ category.isActive }}</td>
+                        <td>
+                            <a rel="tooltip" class="btn btn-small" href="{{ path('ticket_category_update', {'id': category.id }) }}">
+                                <i class="icon-edit"></i>
+                            </a>
+                            <a rel="tooltip" class="btn btn-small btn-danger" href="{{ path('ticket_category_delete', {'id': category.id}) }}" onclick="return confirm('Are you sure ?');">
+                                <i class="icon-fire icon-white"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            No
+        {% endif %}
+    </div>
+{% endblock %}

@@ -1,0 +1,15 @@
+ticket_priority_index:
+    pattern: /ticket-priority
+    defaults: { _controller: "GitonomyTicketingBundle:TicketPriority:index" }
+
+ticket_priority_create:
+    pattern: /ticket-priority/create
+    defaults: { _controller: "GitonomyTicketingBundle:TicketPriority:create" }
+
+ticket_priority_update:
+    pattern: /ticket-priority/edit/{id}
+    defaults: { _controller: "GitonomyTicketingBundle:TicketPriority:edit" }
+
+ticket_priority_delete:
+    pattern: /ticket-priority/delete/{id}
+    defaults: { _controller: "GitonomyTicketingBundle:TicketPriority:delete" }

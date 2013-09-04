@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<doctrine-mapping xmlns="http://doctrine-project.org/schemas/orm/doctrine-mapping"
+                  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                  xsi:schemaLocation="http://doctrine-project.org/schemas/orm/doctrine-mapping http://doctrine-project.org/schemas/orm/doctrine-mapping.xsd">
+
+    <entity table="ticket_priority" name="Gitonomy\Bundle\TicketingBundle\Entity\TicketPriority" repository-class="Gitonomy\Bundle\TicketingBundle\Entity\Repository\TicketPriorityRepository">
+        <id name="id" type="integer" column="id">
+            <generator strategy="AUTO" />
+        </id>
+
+        <field name="title" type="string" column="name" length="32" />
+        <field name="isActive" type="boolean" column="is_active" />
+    </entity>
+
+</doctrine-mapping>

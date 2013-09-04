@@ -1,0 +1,15 @@
+ticket_category_index:
+    pattern: /ticket-category
+    defaults: { _controller: "GitonomyTicketingBundle:TicketCategory:index" }
+
+ticket_category_create:
+    pattern: /ticket-category/create
+    defaults: { _controller: "GitonomyTicketingBundle:TicketCategory:create" }
+
+ticket_category_update:
+    pattern: /ticket-category/edit/{id}
+    defaults: { _controller: "GitonomyTicketingBundle:TicketCategory:edit" }
+
+ticket_category_delete:
+    pattern: /ticket-category/delete/{id}
+    defaults: { _controller: "GitonomyTicketingBundle:TicketCategory:delete" }

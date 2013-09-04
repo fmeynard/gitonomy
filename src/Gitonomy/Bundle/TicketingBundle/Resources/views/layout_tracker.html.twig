@@ -1,0 +1,26 @@
+{% extends "GitonomyWebsiteBundle::layout.html.twig" %}
+
+{% trans_default_domain 'navigation_project' %}
+
+{% set global_navigation = 'ticketing' %}
+
+{% block content %}
+<h1 class="with-menu">
+    fuck
+</h1>
+
+<div id="wrapper">
+    <ul id="local-menu">
+        {% set slug = 'test' %}
+        {% set local_navigation = 'test' %}
+        <li><a href="{{ path('project_newsfeed', {slug: slug }) }}"{% if local_navigation == 'newsfeed' %} class="active"{% endif %}>{{ 'menu.newsfeed'|trans }}</a></li>
+        <li><a href="{{ path('project_history', {slug: slug }) }}"{% if local_navigation == 'history' %} class="active"{% endif %}>{{ 'menu.history'|trans }}</a></li>
+        <li><a href="{{ path('project_branches', {slug: slug }) }}"{% if local_navigation == 'branches' %} class="active"{% endif %}>{{ 'menu.branches'|trans }}</a></li>
+        <li><a href="{{ path('project_tags', {slug: slug }) }}"{% if local_navigation == 'tags' %} class="active"{% endif %}>{{ 'menu.tags'|trans }}</a></li>
+    </ul>
+
+    <div id="content" class="with-menu">
+        {% block tracker_content '' %}
+    </div>
+</div>
+{% endblock %}

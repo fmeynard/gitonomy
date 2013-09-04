@@ -1,0 +1,15 @@
+ticket_status_index:
+    pattern: /ticket-status
+    defaults: { _controller: "GitonomyTicketingBundle:TicketStatus:index" }
+
+ticket_status_create:
+    pattern: /ticket-status/create
+    defaults: { _controller: "GitonomyTicketingBundle:TicketStatus:create" }
+
+ticket_status_update:
+    pattern: /ticket-status/edit/{id}
+    defaults: { _controller: "GitonomyTicketingBundle:TicketStatus:edit" }
+
+ticket_status_delete:
+    pattern: /ticket-status/delete/{id}
+    defaults: { _controller: "GitonomyTicketingBundle:TicketStatus:delete" }
