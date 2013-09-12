@@ -4,7 +4,7 @@
 
 {% block tracker_content %}
     <div id="content">
-        <form method="POST" action"{{ path('project_create') }}" class="form-horizontal" novalidate>
+        <form method="POST" action="{{ path('project_create') }}" class="form-horizontal" novalidate>
         <legend>{{ 'form.legend'|trans }}</legend>
         {{ form_widget(form) }}
         <div class="control-group">
