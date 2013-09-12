@@ -32,7 +32,7 @@ class TicketTrackerController extends Controller
 
         if ('POST' == $request->getMethod() && $form->submit($request)->isValid()) {
             $this->persistEntity($ticketTracker);
-            $this->setFlash('success', $this->trans('notice.created', array(), 'ticket_tracker'));
+            $this->setFlash('success', $this->trans('notice.created', array(), 'ticketing_bundle'));
 
             return $this->redirect($this->generateUrl('ticket_tracker_index'));
         }
@@ -49,7 +49,7 @@ class TicketTrackerController extends Controller
 
         if ('POST' == $request->getMethod() && $form->submit($request)->isValid()) {
             $this->flush($ticketTracker);
-            $this->setFlash('success', $this->trans('notice.updated', array(), 'ticket_tracker'));
+            $this->setFlash('success', $this->trans('notice.updated', array(), 'ticketing_bundle'));
 
             return $this->redirect($this->generateUrl('ticket_tracker_index'));
         }
@@ -63,7 +63,7 @@ class TicketTrackerController extends Controller
     {
         $ticketTracker = $this->getRepository('GitonomyTicketingBundle:TicketTracker')->find($request->get('id'));
         $this->removeEntity($ticketTracker);
-        $this->setFlash('success', $this->trans('notice.deleted', array(), 'ticket_tracker'));
+        $this->setFlash('success', $this->trans('notice.deleted', array(), 'ticketing_bundle'));
 
         return $this->redirect($this->generateUrl('ticket_tracker_index'));
     }

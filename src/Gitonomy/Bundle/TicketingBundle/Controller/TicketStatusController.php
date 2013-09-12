@@ -31,7 +31,7 @@ class TicketStatusController extends Controller
 
         if ('POST' == $request->getMethod() && $form->submit($ticketStatus)->isValid()) {
             $this->persistEntity($ticketStatus);
-            $this->setFlash('success', $this->trans('notice.created', array(), 'ticket_status'));
+            $this->setFlash('success', $this->trans('notice.created', array(), 'ticketing_bundle'));
 
             return $this->redirect($this->generateUrl('ticket_status_index'));
         }
@@ -48,7 +48,7 @@ class TicketStatusController extends Controller
 
         if ('POST' == $request->getMethod() && $form->submit($request)->isValid()) {
             $this->flush($ticketStatus);
-            $this->setFlash('success', $this->trans('notice.updated', array(), 'ticket_status'));
+            $this->setFlash('success', $this->trans('notice.updated', array(), 'ticketing_bundle'));
 
             return $this->redirect($this->generateUrl('ticket_status_index'));
         }
@@ -62,7 +62,7 @@ class TicketStatusController extends Controller
     {
         $ticketStatus = $this->getRepository('GitonomyTicketingBundle:TicketStatus')->find($request->get('id'));
         $this->removeEntity($ticketStatus);
-        $this->setFlash('success', $this->trans('notice.deleted', array(), 'ticket_status'));
+        $this->setFlash('success', $this->trans('notice.deleted', array(), 'ticketing_bundle'));
 
         return $this->redirect($this->generateUrl('ticket_status_index'));
     }

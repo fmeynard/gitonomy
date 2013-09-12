@@ -34,7 +34,7 @@ class TicketCategoryController extends Controller
 
         if ('POST' == $request->getMethod() && $form->submit($request)->isValid()) {
             $this->persistEntity($ticketCategory);
-            $this->setFlash('success', $this->trans('notice.created', array(), 'ticket_category'));
+            $this->setFlash('success', $this->trans('notice.created', array(), 'ticketing_bundle'));
 
             return $this->redirect($this->generateUrl('ticket_category_index'));
         }
@@ -51,7 +51,7 @@ class TicketCategoryController extends Controller
 
         if ('POST' == $request->getMethod() && $form->submit($request)->isValid()) {
             $this->flush($ticketCategory);
-            $this->setFlash('success', $this->trans('notice.updated', array(), 'ticket_category'));
+            $this->setFlash('success', $this->trans('notice.updated', array(), 'ticketing_bundle'));
 
             return $this->redirect($this->generateUrl('ticket_category_index'));
         }
@@ -65,7 +65,7 @@ class TicketCategoryController extends Controller
     {
         $ticketCategory = $this->getRepository('GitonomyTicketingBundle:TicketCategory')->find($request->get('id'));
         $this->removeEntity($ticketCategory);
-        $this->setFlash('success', $this->trans('notice.deleted', array(), 'ticket_category'));
+        $this->setFlash('success', $this->trans('notice.deleted', array(), 'ticketing_bundle'));
 
         return $this->redirect($this->generateUrl('ticket_category_index'));
     }

@@ -19,15 +19,15 @@ class TicketTrackerType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title',    'text',     array('label' => 'form.title'))
-            ->add('isActive', 'checkbox', array('label' => 'form.title'));
+            ->add('title',    'text',     array('label' => 'label.title'))
+            ->add('isActive', 'checkbox', array('label' => 'label.title'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
                 'data_class'         => 'Gitonomy\Bundle\TicketingBundle\Entity\TicketTracker',
-                'translation_domain' => 'ticket_tracker'
+                'translation_domain' => 'ticketing_bundle'
             ));
     }
 

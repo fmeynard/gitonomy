@@ -19,16 +19,16 @@ class TicketCategoryType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('title',       'text',     array('label' => 'form.title'))
-            ->add('description', 'textarea', array('label' => 'form.description'))
-            ->add('isActive',    'checkbox', array('label' => 'form.isActive'));
+            ->add('title',       'text',     array('label' => 'label.title'))
+            ->add('description', 'textarea', array('label' => 'label.description'))
+            ->add('isActive',    'checkbox', array('label' => 'label.isActive'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
                 'data_class'         => 'Gitonomy\Bundle\TicketingBundle\Entity\TicketCategory',
-                'translation_domain' => 'ticket_category'
+                'translation_domain' => 'ticketing_bundle'
             ));
     }
 

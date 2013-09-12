@@ -1,12 +1,12 @@
 {% extends "GitonomyTicketingBundle::layout_tracker.html.twig" %}
 
-{% trans_default_domain 'ticket_priority' %}
+{% trans_default_domain 'ticketing_bundle' %}
 
 {% block tracker_content %}
     <div id="content">
         {% set action =  (app.request.get('id') == "") ? path('ticket_priority_create') : path('ticket_priority_update', {'id': app.request.get('id')}) %}
         <form method="POST" action="{{ action }}" class="form-horizontal" novalidate>
-        <legend>{{ 'form.legend'|trans }} -  {{ app.request.get('id') }}</legend>
+        <legend>{{ 'new'|trans }} {{ 'label.tracker'|trans }}</legend>
         {{ form_widget(form) }}
         <div class="control-group">
             <div class="controls">

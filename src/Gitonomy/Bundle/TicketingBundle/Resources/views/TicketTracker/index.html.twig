@@ -1,18 +1,20 @@
 {% extends "GitonomyTicketingBundle::layout_tracker.html.twig" %}
 
-{% trans_default_domain 'ticket_tracker' %}
+{% trans_default_domain 'ticketing_bundle' %}
 
 {% block tracker_content %}
     <div class="actionbar">
-        <a href="{{ path('tracker_create') }}" class="menu"><i class="symbol">add</i> {{ 'create.tracker'|trans }}</a>
+        <a href="{{ path('tracker_create') }}" class="menu">
+            <i class="symbol">add</i> {{ 'create'|trans }} {{ 'label.tracker'|trans }}
+        </a>
 
         {% if trackers %}
             <table class="table">
                 <thead>
                     <tr>
-                        <th>{{ 'table.title'|trans }}</th>
-                        <th>{{ 'table.description'|trans }}</th>
-                        <th>{{ 'table.actions'|trans }}</th>
+                        <th>{{ 'label.title'|trans }}</th>
+                        <th>{{ 'label.description'|trans }}</th>
+                        <th>{{ 'label.actions'|trans }}</th>
                     </tr>
                 </thead>
                 <tbody>

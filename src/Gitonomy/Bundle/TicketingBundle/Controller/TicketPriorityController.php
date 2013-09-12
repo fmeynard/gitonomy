@@ -31,7 +31,7 @@ class TicketPriorityController extends Controller
 
         if ('POST' == $request->getMethod() && $form->submit($request)->isValid()) {
             $this->persistEntity($ticketPriority);
-            $this->setFlash('success', $this->trans('notice.created', array(), 'ticket_priority'));
+            $this->setFlash('success', $this->trans('notice.created', array(), 'ticketing_bundle'));
 
             return $this->redirect($this->generateUrl('ticket_priority_index'));
         }
@@ -48,7 +48,7 @@ class TicketPriorityController extends Controller
 
         if ('POST' == $request->getMethod() && $form->submit($request)->isValid()) {
             $this->flush($ticketPriority);
-            $this->setFlash('success', $this->trans('notice.updated', array(), 'ticket_priority'));
+            $this->setFlash('success', $this->trans('notice.updated', array(), 'ticketing_bundle'));
 
             return $this->redirect($this->generateUrl('ticket_priority_index'));
         }
@@ -62,7 +62,7 @@ class TicketPriorityController extends Controller
     {
         $ticketPriority = $this->getRepository('GitonomyTicketingBundle:TicketPriority')->find($request->get('id'));
         $this->removeEntity($ticketPriority);
-        $this->setFlash('success', $this->trans('notice.deleted', array(), 'ticket_priority'));
+        $this->setFlash('success', $this->trans('notice.deleted', array(), 'ticketing_bundle'));
 
         return $this->redirect($this->generateUrl('ticket_priority_index'));
     }

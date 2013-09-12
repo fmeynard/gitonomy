@@ -1,11 +1,11 @@
 {% extends "GitonomyTicketingBundle::layout_tracker.html.twig" %}
 
-{% trans_default_domain 'ticket_tracker' %}
+{% trans_default_domain 'ticketing_bundle' %}
 
 {% block tracker_content %}
     <div id="content">
-        <form method="POST" action="{{ path('project_create') }}" class="form-horizontal" novalidate>
-        <legend>{{ 'form.legend'|trans }}</legend>
+        <form method="POST" action="{{ path('tracker_create') }}" class="form-horizontal" novalidate>
+        <legend>{{ 'new'|trans }} {{ 'label.tracker'|trans }}</legend>
         {{ form_widget(form) }}
         <div class="control-group">
             <div class="controls">

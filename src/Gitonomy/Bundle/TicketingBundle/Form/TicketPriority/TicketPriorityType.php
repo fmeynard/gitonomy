@@ -19,16 +19,16 @@ class TicketPriorityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('score',    'integer',  array('label' => 'form.score'))
-            ->add('title',    'text',     array('label' => 'form.title'))
-            ->add('isActive', 'checkbox', array('label' => 'form.isActive'));
+            ->add('score',    'integer',  array('label' => 'label.score'))
+            ->add('title',    'text',     array('label' => 'label.title'))
+            ->add('isActive', 'checkbox', array('label' => 'label.isActive'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
                 'data_class'         => 'Gitonomy\Bundle\TicketingBundle\Entity\TicketPriority',
-                'translation_domain' => 'ticket_priority'
+                'translation_domain' => 'ticketing_bundle'
             ));
     }
 

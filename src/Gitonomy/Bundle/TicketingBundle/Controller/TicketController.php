@@ -44,7 +44,7 @@ class TicketController extends Controller
 
         if ('POST' == $request->getMethod() && $form->submit($request)->isValid()) {
             $this->persistEntity($ticket);
-            $this->setFlash('success', $this->trans('notice.created', array(), 'ticket'));
+            $this->setFlash('success', $this->trans('notice.created', array(), 'ticketing_bundle'));
 
             return $this->redirect($this->generateUrl('ticket_index'));
         }
@@ -61,7 +61,7 @@ class TicketController extends Controller
 
         if ('POST' == $request->getMethod() && $form->submit($request)->isValid()) {
             $this->flush($ticket);
-            $this->setFlash('success', $this->trans('notice.updated', array(), 'ticket'));
+            $this->setFlash('success', $this->trans('notice.updated', array(), 'ticketing_bundle'));
 
             return $this->redirect($this->generateUrl('ticket_index'));
         }

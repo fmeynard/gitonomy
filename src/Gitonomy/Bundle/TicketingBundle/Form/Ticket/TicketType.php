@@ -23,42 +23,42 @@ class TicketType extends AbstractType
     {
         $builder
             ->add('ticketCategory', 'entity',  array(
-                    'label' => 'form.category',
+                    'label' => 'label.category',
                     'class' => 'GitonomyTicketingBundle:TicketCategory',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->findActiveOrderByTitleQB();
                     }
                 ))
             ->add('ticketTracker', 'entity',  array(
-                    'label' => 'form.tracker',
+                    'label' => 'label.tracker',
                     'class' => 'GitonomyTicketingBundle:TicketTracker',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->findActiveOrderByTitleQB();
                     }
                 ))
             ->add('ticketPriority', 'entity',  array(
-                'label' => 'form.priority',
+                'label' => 'label.priority',
                 'class' => 'GitonomyTicketingBundle:TicketPriority',
                 'query_builder' => function(EntityRepository $er) {
                     return $er->findAllOrderByScoreQB();
                 }
             ))
             ->add('ticketStatus', 'entity',  array(
-                'label' => 'form.status',
+                'label' => 'label.status',
                 'class' => 'GitonomyTicketingBundle:TicketPriority',
                 'query_builder' => function(EntityRepository $er) {
                     return $er->findAllOrderByScoreQB();
                 }
             ))
-            ->add('title',   'text',     array('label' => 'form.title'))
-            ->add('content', 'textarea', array('label' => 'form.content'));
+            ->add('title',   'text',     array('label' => 'label.title'))
+            ->add('content', 'textarea', array('label' => 'label.content'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
                 'data_class'         => 'Gitonomy\Bundle\TicketingBundle\Entity\Ticket',
-                'translation_domain' => 'ticket'
+                'translation_domain' => 'ticketing_bundle'
             ));
     }
 
