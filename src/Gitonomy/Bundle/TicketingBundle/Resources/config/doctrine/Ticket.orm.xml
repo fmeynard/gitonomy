@@ -11,7 +11,7 @@
         <field name="title" type="string" column="name" length="50" />
         <field name="content" type="text" column="content" />
         <field name="createdAt" column="created_at" type="datetime" />
-        <field name="updatedAt" column="updated_at" type="datetime" />
+        <field name="updatedAt" column="updated_at" type="datetime" nullable="true"/>
 
         <one-to-many field="ticketUpdates" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketUpdate" mapped-by="ticket">
             <cascade>
@@ -33,7 +33,7 @@
         </many-to-one>
 
         <many-to-one field="updatedBy" target-entity="Gitonomy\Bundle\CoreBundle\Entity\User">
-            <join-column name="user_id" referenced-column-name="id" />
+            <join-column name="user_id" referenced-column-name="id" nullable="true"/>
         </many-to-one>
 
         <many-to-one field="ticketStatus" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketStatus">
@@ -42,6 +42,10 @@
 
         <many-to-one field="ticketCategory" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketCategory">
             <join-column name="ticket_category_id" referenced-column-name="id" />
+        </many-to-one>
+
+        <many-to-one field="ticketPriority" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketPriority">
+            <join-column name="ticket_priority_id" referenced-column-name="id" />
         </many-to-one>
     </entity>
 

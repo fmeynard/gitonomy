@@ -21,6 +21,7 @@ class Ticket
     protected $ticketTracker;
     protected $ticketCategory;
     protected $ticketStatus;
+    protected $ticketPriority;
     protected $title;
     protected $content;
     protected $createdBy;
@@ -91,8 +92,19 @@ class Ticket
 
     public function getTicketStatus()
     {
-
         return $this->ticketStatus;
+    }
+
+    public function setTicketPriority($ticketPriority)
+    {
+        $this->ticketPriority = $ticketPriority;
+
+        return $this;
+    }
+
+    public function getTicketPriority()
+    {
+        return $this->ticketPriority;
     }
 
     public function setTitle($title)
@@ -112,6 +124,11 @@ class Ticket
         $this->content = $content;
 
         return $this;
+    }
+
+    public function getContent()
+    {
+        return $this->content;
     }
 
     public function setCreatedBy($createdBy)

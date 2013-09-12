@@ -1,0 +1,23 @@
+{% extends "GitonomyTicketingBundle::layout_tracker.html.twig" %}
+
+{% trans_default_domain 'ticket' %}
+
+{% block tracker_content %}
+    <h2>{{ ticket.title }}</h2>
+
+    <table>
+        <tr>
+            <td rowspan="2">
+                <ul>
+                    <li>{{ 'label.category'|trans }} : {{ ticket.ticketCategory }}</li>
+                </ul>
+            </td>
+            <td>
+                {{ 'label.createdBy'|trans }} {{ ticket.createdBy }} {{ 'at'|trans }} {{ ticket.createdAt|date('Y-m-d H:i') }}
+            </td>
+        </tr>
+        <tr>
+            <td>{{ ticket.content }}</td>
+        </tr>
+    </table>
+{% endblock %}

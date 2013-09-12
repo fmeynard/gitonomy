@@ -16,11 +16,28 @@ use Doctrine\ORM\EntityRepository;
 
 class TicketCategoryRepository extends EntityRepository
 {
-    public function findAllOrderedByTitle()
+    public function findAllOrderByTitle()
     {
         return $this
             ->createQueryBuilder('p')
             ->orderBy('p.title')
+            ->getQuery()
+            ->execute();
+    }
+
+    public function findActiveOrderByTitleQB()
+    {
+        return $this
+            ->createQueryBuilder('p')
+            ->where('p.isActive = :active')
+            ->setParameter('active', true)
+            ->orderBy('p.title');
+    }
+
+    public function findActiveOrderByTitle()
+    {
+        return $this
+            ->findActiveOrderByTitleQB()
             ->getQuery()
             ->execute();
     }

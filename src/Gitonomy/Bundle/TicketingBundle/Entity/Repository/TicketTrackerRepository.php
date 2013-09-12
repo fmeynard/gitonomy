@@ -16,7 +16,7 @@ use Doctrine\ORM\EntityRepository;
 
 class TicketTrackerRepository extends EntityRepository
 {
-    public function findAllOrderedByTitle()
+    public function findAllOrderByTitle()
     {
         return $this
             ->createQueryBuilder('p')
@@ -25,8 +25,20 @@ class TicketTrackerRepository extends EntityRepository
             ->execute();
     }
 
-    public function findActiveOrderedByTitle()
+    public function findActiveOrderByTitleQB()
     {
+        return $this
+            ->createQueryBuilder('p')
+            ->where('p.isActive = :active')
+            ->setParameter('active', true)
+            ->orderBy('p.title');
+    }
 
+    public function findActiveOrderByTitle()
+    {
+        return $this
+            ->findActiveOrderByTitleQB()
+            ->getQuery()
+            ->execute();
     }
 }

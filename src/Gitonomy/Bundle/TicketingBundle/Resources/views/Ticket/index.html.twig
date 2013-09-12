@@ -1,0 +1,43 @@
+{% extends "GitonomyTicketingBundle::layout_tracker.html.twig" %}
+
+{% trans_default_domain 'ticket' %}
+
+{% block tracker_content %}
+    <div class="actionbar">
+        <a href="{{ path('ticket_create') }}" class="menu"><i class="symbol">add</i> {{ 'create.ticket'|trans }}</a>
+
+        {% if tickets %}
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>{{ 'table.title'|trans }}</th>
+                    <th>{{ 'table.project'|trans }}</th>
+                    <th>{{ 'table.content'|trans }}</th>
+                    <th>{{ 'table.createdBy' }}</th>
+                    <th>{{ 'table.actions'|trans }}</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for ticket in tickets %}
+                    <tr>
+                        <td><a href="{{ path('ticket_view', { 'id': ticket.id}) }}">{{ ticket.title }}</a></td>
+                        <td>{{ ticket.project.name }}</td>
+                        <td>{{ ticket.content }}</td>
+                        <td>{{ ticket.createdBy }}</td>
+                        <td>
+                            <a rel="tooltip" class="btn btn-small" href="{{ path('ticket_update', {'id': ticket.id }) }}">
+                                <i class="icon-edit"></i>
+                            </a>
+                            <a rel="tooltip" class="btn btn-small btn-danger" href="{{ path('ticket_delete', {'id': ticket.id}) }}" onclick="return confirm('Are you sure ?');">
+                                <i class="icon-fire icon-white"></i>
+                            </a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            No
+        {% endif %}
+    </div>
+{% endblock %}

@@ -6,18 +6,26 @@
 
     <parameters>
         <!-- Tracker -->
-        <parameter key="gitonomy_ticketing.form.type.tracker.class">Gitonomy\Bundle\TicketingBundle\Form\Tracker\TicketTrackerType</parameter>
+        <parameter key="gitonomy_ticketing.form.type.ticket.class">Gitonomy\Bundle\TicketingBundle\Form\Ticket\TicketType</parameter>
         <parameter key="gitonomy_ticketing.form.type.category.class">Gitonomy\Bundle\TicketingBundle\Form\TicketCategory\TicketCategoryType</parameter>
+        <parameter key="gitonomy_ticketing.form.type.priority.class">Gitonomy\Bundle\TicketingBundle\Form\TicketPriority\TicketPriorityType</parameter>
+        <parameter key="gitonomy_ticketing.form.type.tracker.class">Gitonomy\Bundle\TicketingBundle\Form\Tracker\TicketTrackerType</parameter>
     </parameters>
 
     <services>
 
         <!-- General -->
-        <service id="gitonomy_ticketing.form.type.tracker" class="%gitonomy_ticketing.form.type.tracker.class%">
-            <tag name="form.type" alias="ticket_tracker" />
+        <service id="gitonomy_ticketing.form.type.ticket" class="%gitonomy_ticketing.form.type.ticket.class%">
+            <tag name="form.type" alias="ticket" />
         </service>
         <service id="gitonomy_ticketing.form.type.category" class="%gitonomy_ticketing.form.type.category.class%">
             <tag name="form.type" alias="ticket_category" />
+        </service>
+        <service id="gitonomy_ticketing.form.type.priority" class="%gitonomy_ticketing.form.type.priority.class%">
+            <tag name="form.type" alias="ticket_priority" />
+        </service>
+        <service id="gitonomy_ticketing.form.type.tracker" class="%gitonomy_ticketing.form.type.tracker.class%">
+            <tag name="form.type" alias="ticket_tracker" />
         </service>
     </services>
 

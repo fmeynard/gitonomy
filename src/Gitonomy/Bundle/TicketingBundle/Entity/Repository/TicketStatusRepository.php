@@ -12,7 +12,24 @@
 namespace Gitonomy\Bundle\TicketingBundle\Entity\Repository;
 
 
-class TicketStatusRepository
-{
+use Doctrine\ORM\EntityRepository;
 
+class TicketStatusRepository extends EntityRepository
+{
+    public function findActiveOrderByTitleQB()
+    {
+        return $this
+            ->createQueryBuilder('p')
+            ->where('p.isActive = :active')
+            ->setParameter('active', true)
+            ->orderBy('p.title');
+    }
+
+    public function findActiveOrderByTitle()
+    {
+        return $this
+            ->findActiveOrderByTitleQB()
+            ->getQuery()
+            ->execute();
+    }
 }

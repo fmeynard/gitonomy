@@ -15,5 +15,27 @@ use Doctrine\ORM\EntityRepository;
 
 class TicketPriorityRepository extends EntityRepository
 {
+    public function findAllOrderByTitle()
+    {
+        return $this
+            ->createQueryBuilder('p')
+            ->orderBy('p.title')
+            ->getQuery()
+            ->execute();
+    }
 
+    public function findAllOrderByScoreQB()
+    {
+        return $this
+            ->createQueryBuilder('p')
+            ->orderBy('p.score');
+    }
+
+    public function findAllOrderByScore()
+    {
+        return $this
+            ->findAllOrderByScoreQB()
+            ->getQuery()
+            ->execute();
+    }
 }

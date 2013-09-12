@@ -19,8 +19,9 @@ class TicketPriorityType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
+            ->add('score',    'integer',  array('label' => 'form.score'))
             ->add('title',    'text',     array('label' => 'form.title'))
-            ->add('isActive', 'checkbox', array('label' => 'form.title'));
+            ->add('isActive', 'checkbox', array('label' => 'form.isActive'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)

@@ -7,4 +7,11 @@
     <imports>
         <import resource="services/form.xml" />
     </imports>
+
+    <services>
+        <service id="ticket.listener" class="Gitonomy\Bundle\TicketingBundle\Listener\TicketListener">
+            <argument type="service" id="service_container" />
+            <tag name="doctrine.event_listener" event="prePersist" />
+        </service>
+    </services>
 </container>

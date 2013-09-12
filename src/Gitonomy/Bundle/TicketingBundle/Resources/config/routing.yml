@@ -1,3 +1,6 @@
+ticket:
+    resource: "@GitonomyTicketingBundle/Resources/config/routing/ticket.yml"
+
 ticket_tracker:
     resource: "@GitonomyTicketingBundle/Resources/config/routing/ticket_tracker.yml"
 

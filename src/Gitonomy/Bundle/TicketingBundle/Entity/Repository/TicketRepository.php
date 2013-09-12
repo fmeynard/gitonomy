@@ -16,11 +16,23 @@ use Doctrine\ORM\EntityRepository;
 
 class TicketRepository extends EntityRepository
 {
+    public function findByFilters(array $filters = array())
+    {
+        $qb = $this
+            ->createQueryBuilder('p')
+            ->orderBy('p.id');
+
+        return $qb
+            ->getQuery()
+            ->execute();
+    }
+
     public function findAllOrderedByPriorityAndDate()
     {
         return $this
             ->createQueryBuilder('p')
-            ->orderBy('p.ticketPriority DESC, p.createdAt DESC')
+            ->leftJoin('p.TicketPriority', 'tp')
+            ->orderBy('p.ticketPriority.score DESC, p.createdAt DESC')
             ->getQuery()
             ->execute();
     }

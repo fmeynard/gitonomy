@@ -1,0 +1,19 @@
+ticket_index:
+    pattern: /ticket
+    defaults: { _controller: "GitonomyTicketingBundle:Ticket:index" }
+
+ticket_view:
+    pattern: /ticket/view/{id}
+    defaults: { _controller: "GitonomyTicketingBundle:Ticket:view" }
+
+ticket_create:
+    pattern: /ticket/create
+    defaults: { _controller: "GitonomyTicketingBundle:Ticket:create" }
+
+ticket_update:
+    pattern: /ticket/update/{id}
+    defaults: { _controller: "GitonomyTicketingBundle:Ticket:update" }
+
+ticket_delete:
+    pattern: /ticket/delete/{id}
+    defaults: { _controller: "GitonomyTicketingBundle:Ticket:delete" }

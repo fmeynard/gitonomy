@@ -21,8 +21,10 @@ class TicketCategoryController extends Controller
     public function indexAction()
     {
         return $this->render('GitonomyTicketingBundle:TicketCategory:index.html.twig', array(
-                'categories' => $this->getRepository('GitonomyTicketingBundle:TicketCategory')->findAllOrderedByTitle()
-            ));
+            'categories' => $this
+                ->getRepository('GitonomyTicketingBundle:TicketCategory')
+                ->findAllOrderByTitle()
+        ));
     }
 
     public function createAction(Request $request)
@@ -38,8 +40,8 @@ class TicketCategoryController extends Controller
         }
 
         return $this->render('GitonomyTicketingBundle:TicketCategory:edit.html.twig', array(
-                'form' => $form->createView()
-            ));
+            'form' => $form->createView()
+        ));
     }
 
     public function editAction(Request $request)
@@ -55,8 +57,8 @@ class TicketCategoryController extends Controller
         }
 
         return $this->render('GitonomyTicketingBundle:TicketCategory:edit.html.twig', array(
-                'form' => $form->createView()
-            ));
+            'form' => $form->createView()
+        ));
     }
 
     public function deleteAction(Request $request)

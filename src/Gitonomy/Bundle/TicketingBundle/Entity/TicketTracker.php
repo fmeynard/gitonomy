@@ -26,6 +26,11 @@ class TicketTracker
         $this->tickets = new ArrayCollection();
     }
 
+    public function __toString()
+    {
+        return $this->getTitle();
+    }
+
     public function setId($id)
     {
         $this->id = $id;

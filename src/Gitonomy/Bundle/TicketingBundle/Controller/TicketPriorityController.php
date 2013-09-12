@@ -20,7 +20,7 @@ class TicketPriorityController extends Controller
     public function indexAction()
     {
         return $this->render('GitonomyTicketingBundle:TicketPriority:index.html.twig', array(
-                'priorities' => $this->getRepository('GitonomyTicketingBundle:TicketPriority')->findAllOrderedByTitle()
+                'priorities' => $this->getRepository('GitonomyTicketingBundle:TicketPriority')->findAllOrderByTitle()
             ));
     }
 
