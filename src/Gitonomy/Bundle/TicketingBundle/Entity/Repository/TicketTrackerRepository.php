@@ -16,7 +16,7 @@ use Doctrine\ORM\EntityRepository;
 
 class TicketTrackerRepository extends EntityRepository
 {
-    public function findAllOrderByTitle()
+    public function findAllOrderedByTitle()
     {
         return $this
             ->createQueryBuilder('p')

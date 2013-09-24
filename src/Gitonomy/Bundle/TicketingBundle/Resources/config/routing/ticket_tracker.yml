@@ -1,15 +1,15 @@
 tracker_index:
     pattern: /tracker
-    defaults: { _controller: "GitonomyTicketingBundle:Tracker:index" }
+    defaults: { _controller: "GitonomyTicketingBundle:TicketTracker:index" }
 
 tracker_create:
     pattern: /tracker/create
-    defaults: { _controller: "GitonomyTicketingBundle:Tracker:create" }
+    defaults: { _controller: "GitonomyTicketingBundle:TicketTracker:create" }
 
 tracker_update:
     pattern: /tracker/edit/{id}
-    defaults: { _controller: "GitonomyTicketingBundle:Tracker:edit" }
+    defaults: { _controller: "GitonomyTicketingBundle:TicketTracker:edit" }
 
 tracker_delete:
     pattern: /tracker/delete/{id}
-    defaults: { _controller: "GitonomyTicketingBundle:Tracker:delete" }
+    defaults: { _controller: "GitonomyTicketingBundle:TicketTracker:delete" }

@@ -19,11 +19,10 @@ class TicketStatus
     protected $id;
     protected $title;
     protected $isActive;
-    protected $tickets;
 
     public function __construct()
     {
-        $this->tickets = new ArrayCollection();
+        $this->isActive = true;
     }
 
     public function setId($id)
@@ -60,17 +59,5 @@ class TicketStatus
     public function getIsActive()
     {
         return $this->isActive;
-    }
-
-    public function setTickets($tickets)
-    {
-        $this->tickets = $tickets;
-
-        return $this;
-    }
-
-    public function getTickets()
-    {
-        return $this->tickets;
     }
 }

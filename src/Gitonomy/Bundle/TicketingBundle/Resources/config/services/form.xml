@@ -10,6 +10,9 @@
         <parameter key="gitonomy_ticketing.form.type.category.class">Gitonomy\Bundle\TicketingBundle\Form\TicketCategory\TicketCategoryType</parameter>
         <parameter key="gitonomy_ticketing.form.type.priority.class">Gitonomy\Bundle\TicketingBundle\Form\TicketPriority\TicketPriorityType</parameter>
         <parameter key="gitonomy_ticketing.form.type.tracker.class">Gitonomy\Bundle\TicketingBundle\Form\Tracker\TicketTrackerType</parameter>
+        <parameter key="gitonomy_ticketing.form.type.status.class">Gitonomy\Bundle\TicketingBundle\Form\TicketStatus\TicketStatusType</parameter>
+        <parameter key="gitonomy_ticketing.form.type.short_update.class">Gitonomy\Bundle\TicketingBundle\Form\TicketUpdate\ShortTicketUpdateType</parameter>
+        <parameter key="gitonomy_ticketing.form.type.long_update.class">Gitonomy\Bundle\TicketingBundle\Form\TicketUpdate\LongTicketUpdateType</parameter>
     </parameters>
 
     <services>
@@ -26,6 +29,15 @@
         </service>
         <service id="gitonomy_ticketing.form.type.tracker" class="%gitonomy_ticketing.form.type.tracker.class%">
             <tag name="form.type" alias="ticket_tracker" />
+        </service>
+        <service id="gitonomy_ticketing.form.type.status" class="%gitonomy_ticketing.form.type.status.class%">
+            <tag name="form.type" alias="ticket_status" />
+        </service>
+        <service id="gitonomy_ticketing.form.type.short_udpate" class="%gitonomy_ticketing.form.type.short_update.class%">
+            <tag name="form.type" alias="ticket_short_update" />
+        </service>
+        <service id="gitonomy_ticketing.form.type.long_udpate" class="%gitonomy_ticketing.form.type.long_update.class%">
+            <tag name="form.type" alias="ticket_long_update" />
         </service>
     </services>
 

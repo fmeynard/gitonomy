@@ -8,62 +8,66 @@
  * with this source code in the file LICENSE.
  */
 
-namespace Gitonomy\Bundle\TicketingBundle\Form\Ticket;
+namespace Gitonomy\Bundle\TicketingBundle\Form\TicketUpdate;
 
 use Doctrine\ORM\EntityRepository;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
-
-
-class TicketType extends AbstractType
+class TicketUpdateType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('ticketCategory', 'entity',  array(
+            ->add('content',    'textarea',     array('label' => 'label.content'))
+            ->add('newProject', 'entity', array(
+                    'label'         => 'label.project',
+                    'class'         => 'GitonomyCoreBundle:Project',
+                    'query_builder' => function(EntityRepository $er) {
+                        return $er->findAll();
+                    }
+                ))
+            ->add('newCategory', 'entity',  array(
                     'label' => 'label.category',
                     'class' => 'GitonomyTicketingBundle:TicketCategory',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->findActiveOrderByTitleQB();
                     }
                 ))
-            ->add('ticketTracker', 'entity',  array(
+            ->add('newTracker', 'entity',  array(
                     'label' => 'label.tracker',
                     'class' => 'GitonomyTicketingBundle:TicketTracker',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->findActiveOrderByTitleQB();
                     }
                 ))
-            ->add('ticketPriority', 'entity',  array(
+            ->add('newPriority', 'entity',  array(
                     'label' => 'label.priority',
                     'class' => 'GitonomyTicketingBundle:TicketPriority',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->findAllOrderByScoreQB();
                     }
                 ))
-            ->add('ticketStatus', 'entity',  array(
+            ->add('newStatus', 'entity',  array(
                     'label' => 'label.status',
                     'class' => 'GitonomyTicketingBundle:TicketPriority',
                     'query_builder' => function(EntityRepository $er) {
                         return $er->findAllOrderByScoreQB();
                     }
-                ))
-            ->add('title',   'text',     array('label' => 'label.title'))
-            ->add('content', 'textarea', array('label' => 'label.content'));
+                ));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-                'data_class'         => 'Gitonomy\Bundle\TicketingBundle\Entity\Ticket',
+                'data_class'         => 'Gitonomy\Bundle\TicketingBundle\Entity\TicketUpdate',
                 'translation_domain' => 'ticketing_bundle'
             ));
     }
 
     public function getName()
     {
-        return 'ticket';
+        return 'ticket_update';
     }
 }

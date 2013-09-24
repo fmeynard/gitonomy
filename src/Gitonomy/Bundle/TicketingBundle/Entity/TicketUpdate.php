@@ -15,10 +15,25 @@ namespace Gitonomy\Bundle\TicketingBundle\Entity;
 class TicketUpdate
 {
     protected $id;
+    protected $ticket;
     protected $createdBy;
     protected $createdAt;
     protected $content;
-    protected $tickets;
+    protected $oldStatus;
+    protected $newStatus;
+    protected $oldCategory;
+    protected $newCategory;
+    protected $oldTracker;
+    protected $newTracker;
+    protected $oldProject;
+    protected $newProject;
+    protected $oldPriority;
+    protected $newPriority;
+
+    public function __construct(Ticket $ticket)
+    {
+        $this->setTicket($ticket);
+    }
 
     public function setId($id)
     {
@@ -30,6 +45,18 @@ class TicketUpdate
     public function getId()
     {
         return $this->id;
+    }
+
+    public function setTicket(Ticket $ticket)
+    {
+        $this->ticket = $ticket;
+
+        return $this;
+    }
+
+    public function getTicket()
+    {
+        return $this->ticket;
     }
 
     public function setCreatedBy($createdBy)
@@ -56,15 +83,123 @@ class TicketUpdate
         return $this->content;
     }
 
-    public function setTickets($tickets)
+    public function setOldStatus($oldStatus)
     {
-        $this->tickets = $tickets;
+        $this->oldStatus = $oldStatus;
 
         return $this;
     }
 
-    public function getTickets()
+    public function getOldStatus()
     {
-        return $this->tickets;
+        return $this->getOldStatus();
+    }
+
+    public function setNewStatus($newStatus)
+    {
+        $this->newStatus = $newStatus;
+
+        return $this;
+    }
+
+    public function getNewStatus()
+    {
+        return $this->newStatus;
+    }
+
+    public function setOldCategory($oldCategory)
+    {
+        $this->oldCategory = $oldCategory;
+
+        return $this;
+    }
+
+    public function getOldCategory()
+    {
+        return $this->oldCategory;
+    }
+
+    public function setNewCategory($newCategory)
+    {
+        $this->newCategory = $newCategory;
+
+        return $this;
+    }
+
+    public function getNewCategory()
+    {
+        return $this->newCategory;
+    }
+
+    public function setOldTracker($oldTracker)
+    {
+        $this->oldTracker = $oldTracker;
+
+        return $this;
+    }
+
+    public function getOldTracker()
+    {
+        return $this->oldTracker;
+    }
+
+    public function setNewTracker($newTracker)
+    {
+        $this->newTracker = $newTracker;
+
+        return $this;
+    }
+
+    public function getNewTracker()
+    {
+        return $this->newTracker;
+    }
+
+    public function setOldProject($oldProject)
+    {
+        $this->oldProject = $oldProject;
+
+        return $this;
+    }
+
+    public function getOldProject()
+    {
+        return $this->oldProject;
+    }
+
+    public function setNewProject($newProject)
+    {
+        $this->newProject = $newProject;
+
+        return $this;
+    }
+
+    public function getNewProject()
+    {
+        return $this->newProject;
+    }
+
+    public function setOldPriority($oldPriority)
+    {
+        $this->oldPriority = $oldPriority;
+
+        return $this;
+    }
+
+    public function getOldPriority()
+    {
+        return $this->oldPriority;
+    }
+
+    public function setNewPriority($newPriority)
+    {
+        $this->newPriority = $newPriority;
+
+        return $this;
+    }
+
+    public function getNewPriority()
+    {
+        return $this->newPriority;
     }
 }

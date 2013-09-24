@@ -19,9 +19,9 @@ class TicketStatusController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('GitonomyTicketingBundle:index.html.twig', array(
-                'statuses' => $this->getRepository('GitonomyTicketingBundle:TicketStatus')->findAllOrderByTitle()
-            ));
+        return $this->render('GitonomyTicketingBundle:TicketStatus:index.html.twig', array(
+            'statuses' => $this->getRepository('GitonomyTicketingBundle:TicketStatus:index.html.twig')->findAllOrderedByTitle()
+        ));
     }
 
     public function createAction(Request $request)
@@ -36,9 +36,9 @@ class TicketStatusController extends Controller
             return $this->redirect($this->generateUrl('ticket_status_index'));
         }
 
-        return $this->render('GitonomyTicketingBundle:TicketStatus:index.html.twig', array(
-                'form' => $form->createView()
-            ));
+        return $this->render('GitonomyTicketingBundle:TicketStatus:edit.html.twig', array(
+            'form' => $form->createView()
+        ));
     }
 
     public function updateAction(Request $request)
@@ -54,8 +54,8 @@ class TicketStatusController extends Controller
         }
 
         return $this->render('GitonomyTicketingBundle:TicketStatus:index.html.twig', array(
-               'form' => $form->createView()
-            ));
+           'form' => $form->createView()
+        ));
     }
 
     public function deleteAction(Request $request)

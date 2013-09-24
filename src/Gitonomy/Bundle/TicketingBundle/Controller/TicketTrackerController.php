@@ -20,7 +20,7 @@ class TicketTrackerController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('GitonomyTicketingBundle:Tracker:index.html.twig', array(
+        return $this->render('GitonomyTicketingBundle:TicketTracker:index.html.twig', array(
             'trackers' => $this->getRepository('GitonomyTicketingBundle:TicketTracker')->findAllOrderedByTitle()
         ));
     }

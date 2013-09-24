@@ -10,13 +10,6 @@
 
         <field name="title" type="string" column="name" length="32" />
         <field name="isActive" type="boolean" column="is_active" />
-
-        <one-to-many field="tickets" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\Ticket" mapped-by="ticketStatus">
-            <cascade>
-                <cascade-remove />
-                <cascade-persist />
-            </cascade>
-        </one-to-many>
     </entity>
 
 </doctrine-mapping>

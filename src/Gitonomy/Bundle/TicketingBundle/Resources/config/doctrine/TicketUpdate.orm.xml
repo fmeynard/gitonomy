@@ -9,8 +9,55 @@
         </id>
 
         <field name="content" type="text" column="content" length="32" />
+        <field name="createdAt" column="created_at" type="datetime" />
 
+        <many-to-one field="ticket" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\Ticket">
+            <join-column name="ticket_id" referenced-column-name="id" />
+        </many-to-one>
 
+        <many-to-one field="createdBy" target-entity="Gitonomy\Bundle\CoreBundle\Entity\User">
+            <join-column name="user_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <many-to-one field="oldProject" target-entity="Gitonomy\Bundle\CoreBundle\Entity\Project">
+            <join-column name="old_project_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <many-to-one field="newProject" target-entity="Gitonomy\Bundle\CoreBundle\Entity\Project">
+            <join-column name="new_project_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <many-to-one field="oldCategory" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketCategory">
+            <join-column name="old_category_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <many-to-one field="newCategory" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketCategory">
+            <join-column name="new_category_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <many-to-one field="oldTracker" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketTracker">
+            <join-column name="old_tracker_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <many-to-one field="newTracker" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketTracker">
+            <join-column name="new_tracker_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <many-to-one field="oldStatus" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketStatus">
+            <join-column name="old_status_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <many-to-one field="newStatus" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketStatus">
+            <join-column name="new_status_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <many-to-one field="oldPriority" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketPriority">
+            <join-column name="old_priority_id" referenced-column-name="id" nullable="true" />
+        </many-to-one>
+
+        <many-to-one field="newPriority" target-entity="Gitonomy\Bundle\TicketingBundle\Entity\TicketPriority">
+            <join-column name="new_priority_id" referenced-column-name="id" />
+        </many-to-one>
     </entity>
 
 </doctrine-mapping>

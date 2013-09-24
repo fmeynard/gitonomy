@@ -20,4 +20,7 @@
             <td>{{ ticket.content }}</td>
         </tr>
     </table>
+
+    <h3>{{ 'comments'|trans }}</h3>
+    {{ form_widget(updateForm) }}
 {% endblock %}

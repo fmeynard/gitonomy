@@ -1,7 +1,8 @@
-menu.newsfeed: __menu.newsfeed
-menu.history: __menu.history
-menu.branches: __menu.branches
-menu.tags: __menu.tags
+menu.ticket: Tickets
+menu.ticket_category: Categories
+menu.ticket_priority: Priorities
+menu.ticket_tracker: Trackers
+menu.ticket_status: Statuses
 create: Create
 label.category: Category
 label.title: Title
@@ -12,6 +13,7 @@ new: New
 button.create: Create
 button.cancel: Cancel
 label.ticket: Ticket
+label.status: Status
 label.project: Project
 label.content: Content
 label.createdBy: 'Created By'
@@ -19,3 +21,4 @@ at: at
 label.tracker: Tracker
 label.priority: Priority
 label.score: Score
+label.isActive: Is Active ?

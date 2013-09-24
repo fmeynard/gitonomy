@@ -20,15 +20,15 @@ class TicketStatusType extends AbstractType
     {
         $builder
             ->add('title',    'text',     array('label' => 'label.title'))
-            ->add('isActive', 'checkbox', array('label' => 'label.title'));
+            ->add('isActive', 'checkbox', array('label' => 'label.isActive'));
     }
 
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-                'data_class'         => 'Gitonomy\Bundle\TicketingBundle\Entity\TicketStatus',
-                'translation_domain' => 'ticketing_bundle'
-            ));
+            'data_class'         => 'Gitonomy\Bundle\TicketingBundle\Entity\TicketStatus',
+            'translation_domain' => 'ticketing_bundle'
+        ));
     }
 
     public function getName()

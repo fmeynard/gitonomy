@@ -13,6 +13,7 @@ use Doctrine\Common\Util\Debug;
 use Doctrine\ORM\Event\LifecycleEventArgs;
 use Gitonomy\Bundle\CoreBundle\Entity\User;
 use Gitonomy\Bundle\TicketingBundle\Entity\Ticket;
+use Gitonomy\Bundle\TicketingBundle\Entity\TicketUpdate;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Symfony\Component\Security\Core\SecurityContext;
 
@@ -42,7 +43,7 @@ class TicketListener
         $securityContext = $this->container->get('security.context');
         $user            = $securityContext->getToken()->getUser();
 
-        if ($entity instanceof Ticket) {
+        if ($entity instanceof Ticket || $entity instanceof TicketUpdate) {
             if (
                 false == $securityContext->getToken()->isAuthenticated() ||
                 false == ($user instanceof User)
@@ -51,7 +52,7 @@ class TicketListener
                 throw new \Exception('User have to be logged to create/update a ticket');
             }
 
-            if ($entity->getId()) {
+            if ($entity instanceof Ticket && $entity->getId()) {
                 $entity->setUpdatedBy($securityContext->getToken()->getUser());
                 $entity->setUpdatedAt(new \DateTime());
             } else {

@@ -12,6 +12,7 @@ namespace Gitonomy\Bundle\TicketingBundle\Controller;
 
 
 use Gitonomy\Bundle\TicketingBundle\Entity\Ticket;
+use Gitonomy\Bundle\TicketingBundle\Entity\TicketUpdate;
 use Gitonomy\Bundle\WebsiteBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
@@ -30,10 +31,12 @@ class TicketController extends Controller
 
     public function viewAction(Request $request)
     {
-        $ticket = $this->getRepository('GitonomyTicketingBundle:Ticket')->find($request->get('id'));
+        $ticket     = $this->getRepository('GitonomyTicketingBundle:Ticket')->find($request->get('id'));
+        $updateForm = $this->createForm('ticket_short_update', new TicketUpdate($ticket));
 
         return $this->render('GitonomyTicketingBundle:Ticket:view.html.twig', array(
-            'ticket' => $ticket
+            'ticket'     => $ticket,
+            'updateForm' => $updateForm->createView(),
         ));
     }
 

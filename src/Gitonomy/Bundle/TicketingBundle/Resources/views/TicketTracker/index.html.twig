@@ -13,7 +13,7 @@
                 <thead>
                     <tr>
                         <th>{{ 'label.title'|trans }}</th>
-                        <th>{{ 'label.description'|trans }}</th>
+                        <th>{{ 'label.isActive'|trans }}</th>
                         <th>{{ 'label.actions'|trans }}</th>
                     </tr>
                 </thead>
@@ -21,7 +21,7 @@
                 {% for tracker in trackers %}
                     <tr>
                         <td>{{ tracker.title }}</td>
-                        <td></td>
+                        <td>{{ tracker.isActive }}</td>
                         <td>
                             <a rel="tooltip" class="btn btn-small" href="{{ path('tracker_update', {id: tracker.id}) }}">
                                 <i class="icon-edit"></i>

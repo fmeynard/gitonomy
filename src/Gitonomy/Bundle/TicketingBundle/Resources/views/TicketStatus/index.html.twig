@@ -4,31 +4,29 @@
 
 {% block tracker_content %}
     <div class="actionbar">
-        <a href="{{ path('ticket_priority_create') }}" class="menu">
-            <i class="symbol">add</i> {{ 'create'|trans }} {{ 'label.priority'|trans }}
+        <a href="{{ path('ticket_status_create') }}" class="menu">
+            <i class="symbol">add</i> {{ 'create'|trans }} {{ 'label.status'|trans }}
         </a>
 
-        {% if priorities %}
+        {% if statuses %}
             <table class="table">
                 <thead>
                 <tr>
                     <th>{{ 'label.title'|trans }}</th>
-                    <th>{{ 'label.score'|trans }}</th>
-                    <th>{{ 'label.isActive' }}</th>
+                    <th>{{ 'label.isActive'|trans }}</th>
                     <th>{{ 'label.actions'|trans }}</th>
                 </tr>
                 </thead>
                 <tbody>
-                {% for priority in priorities %}
+                {% for status in statuses %}
                     <tr>
-                        <td>{{ priority.title }}</td>
-                        <td>{{ priority.score }}</td>
-                        <td>{{ priority.isActive }}</td>
+                        <td>{{ status.title }}</td>
+                        <td>{{ status.isActive }}</td>
                         <td>
-                            <a rel="tooltip" class="btn btn-small" href="{{ path('ticket_priority_update', {'id': priority.id }) }}">
+                            <a rel="tooltip" class="btn btn-small" href="{{ path('ticket_status_update', {id: status.id}) }}">
                                 <i class="icon-edit"></i>
                             </a>
-                            <a rel="tooltip" class="btn btn-small btn-danger" href="{{ path('ticket_priority_delete', {'id': priority.id}) }}" onclick="return confirm('Are you sure ?');">
+                            <a rel="tooltip" class="btn btn-small btn-danger" href="{{ path('ticket_status_delete', {id: status.id}) }}" onclick="return confirm('Are you sure ?');">
                                 <i class="icon-fire icon-white"></i>
                             </a>
                         </td>
